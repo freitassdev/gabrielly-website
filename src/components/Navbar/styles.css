@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 62.5%;
+  background-color: #0A1929;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+/* NAVBAR  */
+.navshadow {
+  boxShadow: 0 3px 4px rgba(0,0,0,.2);
+}
+
+.main-nav {
+  width: 100%;
+  height: 7.5rem;
+  display: grid;
+  grid-template-columns: 3rem 1fr 1.3fr 1fr 7rem;
+  background-color: #0A1929;
+  color: #D3D5D4;
+}
+
+.botname {
+  display: grid;
+  grid-column: 2/3;
+  justify-content: start;
+  align-items: center;
+}
+.botname .botnamebg {
+  padding: 3px;
+  width: 100%;
+}
+.menu-page-link {
+  grid-column: 3/4;
+}
+
+.menu-page-link ul {
+  height: 8rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.menu-page-link ul li {
+  background-color: #0E2237;
+  border-radius: 8px;
+  padding: 6px 6px 6px 6px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);
+}
+
+.botarea ul {
+  height: 8rem;
+  display: grid;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+.botarea ul li:first-child {
+  grid-column: 4/5; /* -- baum dia, ce ta baum? -- */
+}
+
+/* ----------- Grid part ends ----------------- */
+
+.botname h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.botimg {
+  height: 50px; 
+  width: 50px; 
+  border-radius: 50%; 
+  border: 2px solid #0381ED;
+}
+
+.botname h2 span {
+  font-size: 3.5rem;
+}
+
+.menu-page-link ul li {
+  font-size: 1.8rem;
+}
+
+.menu-page-link ul li a {
+  text-transform: capitalize;
+  color: rgba(0, 0, 3, 0.8);
+  transition: 0.5s;
+}
+.menu-page-link ul li:hover > a {
+  transform-origin: left;
+  color: rgba(0, 0, 3, 1);
+  text-decoration: underline;
+  transition: 0.5s;
+}
+
+.botarea ul li {
+  font-size: 3rem;
+  margin-right: 2rem;
+}
+
+.botarea .switch-icon {
+  display: none;
+}
+.switch-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.switch-icon-meta {
+  color: #fff;
+}
+
+/* responsive css style  */
+@media (max-width: 1080px) {
+  .main-nav {
+    height: 8rem;
+    grid-template-columns: 2rem 3fr 3fr 1fr 2rem;
+  }
+
+  .botname,
+  .menu-page-link ul,
+  .botarea ul {
+    height: 8rem;
+  }
+}
+
+/* responsive css style  */
+@media (max-width: 998px) {
+  .main-nav {
+    height: 7rem;
+    grid-template-columns: 2rem 2fr 3fr 2rem 2rem;
+  }
+
+  .menu-page-link {
+    display: none;
+  }
+
+  .botarea ul li {
+    display: none;
+  }
+  
+
+  .mob-pages-link {
+    grid-column: 2/4;
+    position: relative;
+    z-index: 99;
+    
+  }
+
+  .mob-pages-link {
+    background-color: #0C1E31;
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 20rem;
+    display: grid;
+    grid-column: 2/5;
+    align-items: center;
+    padding-left: 1rem;
+    transform-origin: top;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  }
+
+  .mob-pages-link ul {
+    height: 20rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .mob-pages-link ul li:first-child {
+    transition-delay: 0.2s;
+  }
+
+  .botarea {
+    grid-row: 1/2;
+    grid-column: 3/5;
+    justify-items: end;
+    align-items: center;
+    transition: all 2s linear;
+  }
+
+  .botarea .botarea-desktop {
+    margin-right: auto;
+  }
+
+
+  .botarea {
+    height: 7rem;
+    display: flex;
+    justify-self: end;
+    align-items: center;
+  }
+
+  .botarea .switch-icon {
+    display: block;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 798px) {
+  .main-nav {
+    height: 6rem;
+    grid-template-columns: 1rem 2fr 1fr 1fr 1rem;
+  }
+
+  .botname,
+  .botarea ul {
+    height: 6rem;
+  }
+
+  .botarea {
+    height: 6rem;
+    display: flex;
+    justify-self: end;
+    align-items: center;
+  }
+
+  .botarea .switch-icon {
+    display: block;
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .main-nav {
+    height: 6rem;
+    grid-template-columns: 1rem 4fr 1fr 1fr 1rem;
+  }
+
+  .botname,
+  .botarea ul {
+    height: 6rem;
+  }
+
+  .botname h2 {
+    font-size: 2rem;
+  }
+
+  .botarea {
+    height: 6rem;
+    display: flex;
+    justify-self: end;
+    align-items: center;
+  }
+
+  .botarea .switch-icon {
+    display: block;
+    font-size: 2.5rem;
+  }
+}

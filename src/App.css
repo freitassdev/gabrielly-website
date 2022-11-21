@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sniglet&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: "Poppins", "sans-serif";
+}
+
+.App {
+  display: flex;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+.gradient-text {
+  background-image: linear-gradient(43deg, #055EC3 0%, #019EFF 46%, #047AEC 100%, #01BCFF 0%);
+  background-color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.leckerli-one {
+  font-family: 'Leckerli One', cursive;
+}
+
+.background {
+  z-index: -1;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  top: 0;
+  right: 30%;
+  left: 0;
+  background-color: #0A1929;
+  background-size: 60rem;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: repeat;
+  background-image: url("./assets/images/background.png");
+  animation: animBackground 51s linear infinite;
+}
+
+.background-gaby {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  top: 0;
+  right: 30%;
+  left: 0;
+  background-size: 45% auto;
+  background-attachment: scroll;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-image: url("./assets/images/background-gaby.png");
+}
+
+.home-start-section-container {
+    width: 100vh;
+    height: 80vh;
+    position: relative;
+    top: 50%;
+    left: 30%;
+    margin: 10vh 0 0 -50vh;
+}
+
+.home-start-section-text {
+    margin-top: 22%;
+    text-align: center;
+    color: #fff;
+}
+
+.sniglet {
+  font-family: 'Sniglet', cursive;
+}
+
+@media screen and (max-width: 1000px){
+  .background-gaby {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 30%;
+    left: 0;
+    background-size: 0px;
+    background-attachment: scroll;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  .home-start-section-container {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin: 10% 0 0 -50%;
+  }
+}
+
+@keyframes animBackground {
+	from { background-position: 0 0; }
+	to { background-position: 600px 0; }
+}
+
+.toast-message {
+  font-size: 15px;
+}
+
+.area{background-color:#0C1E31; 
+      margin-top:50px;
+      margin-bottom:50px;
+      border: 1px solid #10273F;
+     }
+
+.area-header{border-radius: 8px 8px 0px 0px; border-bottom: 1px solid #10273F;}
+
+
+.guilds-area {
+  align-items: center;
+  margin-left: auto; 
+  margin-right: auto;
+  height: auto;
+  width: 90%;
+  background-color: #10273F;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,.125);
+  margin-bottom: 10px; 
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 4px;
+  transition: transform 250ms;
+}
+
+  
+  .guilds-area:hover {
+    transform: translateY(-5px);
+  }
+
+.p-multiselect {
+  min-width: 100% !important;
+  max-width: 40% !important;
+  min-height: 4rem;
+  max-height: 4rem !important;
+   font-size: 12px !important;
+  
+}
+
+.p-multiselect-item {
+  min-height: 4rem !important;
+  font-size: 12px !important;
+}
+
+
+.p-multiselect-panel .p-multiselect-items .p-multiselect-item {
+  padding: 1.5rem !important;
+  
+}
+
+.p-multiselect-label-container {
+   color: #FFF !important;
+}
+.p-multiselect-token {
+  padding: 0.7rem !important;
+  background-color: #0195FA !important;
+  color: #FFF !important;
+  font-size: 12px !important;
+}
+.p-inputswitch .p-inputswitch-slider {
+  height:25px !important;
+  width: 45px !important;
+}
+.p-inputswitch .p-inputswitch-slider:before {
+    background: #ffffff;
+    width: 1.7rem !important;
+    height: 1.7rem !important;
+    left: 0.2rem !important;
+    margin-top: -0.835rem !important;
+    border-radius: 50% !important;
+    transition-duration: 0.2s !important;
+}
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider:before {
+    transform: translateX(2.2rem) !important;
+}
+
+.p-button {
+  min-width: 65px !important;
+  min-height: 35px !important;
+}
+
+.p-button-label {
+  font-size: 15px !important;
+}
+
+
+@media screen and (max-width: 700px) {
+  .guild-area {
+    width: 100%;
+  }
+}
