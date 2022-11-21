@@ -38,7 +38,7 @@ export default function App() {
               <div className="home-start-section-text">
                 <h1 className="gradient-text leckerli-one" style={{ fontSize: "59px", fontWeight: "400", lineHeight: "68px" }}>Transforme seu servidor</h1>
                 <div style={{ maxWidth: "80%", marginLeft: "auto", marginRight: "auto" }}>
-                  <p className="sniglet" style={{ fontSize: "18px" }}>Olá! Eu sou a <span className="gradient-text">Gabrielly</span>! Apenas uma simples bot que te ajuda a transformar seu servidor em um lugar incrível! Seja bem-vindo(a) ao meu website!</p>
+                  <p className="sniglet" style={{ fontSize: "18px" }}>Olá! Eu sou a <span className="gradient-text">Gabriellay</span>! Apenas uma simples bot que te ajuda a transformar seu servidor em um lugar incrível! Seja bem-vindo(a) ao meu website!</p>
 
                   <Button style={{ maxWidth: '150px', maxHeight: '40px', minWidth: '150px', minHeight: '40px', fontSize: "15px", marginRight: "5px", marginTop: "15px", textTransform: "none" }} variant="contained">Me Adicione</Button>
                   <Button style={{ maxWidth: '130px', maxHeight: '40px', minWidth: '130px', minHeight: '40px', fontSize: "15px", marginLeft: "5px", marginTop: "15px", textTransform: "none" }} color="secondary" variant="outlined">Suporte</Button>
