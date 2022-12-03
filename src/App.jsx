@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import "./App.css";
 import Button from '@mui/material/Button';
-import { toast } from "react-toastify";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getUser } from "./services/api";
-import axios from "axios";
 import Header from "./components/Helmet/Helmet";
 import Loader from "./components/Loader/Loader";
 export default function App() {
@@ -17,7 +15,6 @@ export default function App() {
     const exFunctions = async () => {
       if (localStorage.getItem("key") && localStorage.getItem("id")) {
         await getUser().then((res) => {
-          console.log(res)
           setUser(res.data);
         });
       }
@@ -26,7 +23,7 @@ export default function App() {
 
     exFunctions();
   }, [])
-  console.log(user);
+  user;
   return (
     <>
       <div><Header title="Início - Gabrielly" /></div>

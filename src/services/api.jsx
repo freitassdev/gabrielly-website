@@ -11,7 +11,6 @@ export async function getUserGuilds() {
 
 export async function getUser() {
   const res = await api.get(`/getuser?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}`);
-  console.log(res)
   return res;
 }
 

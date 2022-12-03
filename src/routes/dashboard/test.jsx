@@ -123,7 +123,7 @@ export default function Test() {
             {guild.has && guild.id == guildId && Perms(guild.permissions) == 8 ? (
               <div style={{ padding: "20px" }}>
                 <div><Header title={"Configurações " + guild.name} /></div>
-                <Sidebar guild={guild} />
+                <Sidebar guild={guild} user={user} />
                 <div className="content">
                   <div className="area" style={{ width: "100%", borderRadius: "8px", margin: "auto" }}>
                     <header className="area-header" style={{ color: "#C7D5D4", padding: "10px", fontSize: "16px" }}>

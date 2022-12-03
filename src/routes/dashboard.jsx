@@ -1,19 +1,14 @@
 import { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import "../App.css";
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getUserGuilds, getUser } from "../services/api";
 import Header from "../components/Helmet/Helmet";
 import Loader from "../components/Loader/Loader";
-import axios from "axios";
-import InfoIcon from '@mui/icons-material/Info';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
-export default function App() {
+import Sidebar from "../components/Sidebar/Sidebar";
+export default function Dashboard() {
   const [user, setUser] = useState();
   const [userGuilds, setUserGuilds] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -48,17 +43,10 @@ export default function App() {
       <div><Header title="Selecione um Servidor" /></div>
       {loading ? <Loader loading={loading} /> : (<div>
         <Navbar userData={user} />
-        <div className="area" style={{ width: "90%", borderRadius: "8px", margin: "auto", marginTop: "5%" }}>
-          <header className="area-header" style={{ color: "#C7D5D4", padding: "10px", fontSize: "16px" }}>
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-            }}> <InfoIcon sx={{ fontSize: 20 }} /><span className="sniglet" style={{ marginLeft: "10px" }}>Selecione um servidor.</span></div>
-          </header>
-          <div className="area-body" style={{ backgroundColor: "#0C1E31", borderRadius: "0px 0px 8px 8px" }}>
-
-            <div style={{ padding: "3rem 0rem 2rem 0rem" }}>
+        <Sidebar guild={user} user={user} userGuilds={userGuilds} type="user" />
+        <div className="content">
+        
+            <div style={{ padding: "1rem 0rem 2rem 0rem" }}>
               {userGuilds ? userGuilds.map((guild) => (
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                   {Perms(guild.permissions) == 8 ? (
@@ -81,8 +69,6 @@ export default function App() {
             </div>
           </div>
         </div>
-        <br /><br /><br /><br />
-      </div>
       )}
 
     </>

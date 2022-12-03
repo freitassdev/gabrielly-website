@@ -1,19 +1,80 @@
 body {
   margin: 0;
+  
+}
+.sidebar-body {
+  max-height: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.guilds-sidebar {
+  position:absolute;
+  width: 80px;
+  height: 95vh;
+  overflow: scroll;
+  background-color: #0A1929;
+}
+
+.guilds-sidebar img {
+  width: 55px;
+  height: auto;
+  border-radius: 50%;
+}
+.guilds-sidebar .guild-icon {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.guilds-sidebar .usericon img {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.guilds-sidebar .usericon {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guilds-sidebar hr {
+  width: 50px;
+  height: 3px;
+  background-color: #0195FA;
+  border: 1px solid #0195FA;
+  border-radius: 5px;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guild-icon.active-guild {
+  background-color: #fff;
 }
 
 
+
 .sidebar {
-  margin: 0;
+  margin-left: 80px;
   padding: 10px;
   width: 300px;
-  background-color: #0C1E31;
+  background-color: #122C48;
   position: absolute;
-  height: auto;
-  overflow: auto;
-  border-radius: 8px;
+  height: 85vh;
+  overflow: scroll;
+  border-radius: 20px;
   font-size: 15px;
-  border: 1px solid #10273F;
+}
+.sidebar::-webkit-scrollbar { 
+	display: none;
+}
+
+.guilds-sidebar::-webkit-scrollbar { 
+	display: none;
 }
 
 .sidebar a {
@@ -22,7 +83,7 @@ body {
   padding: 10px;
   text-decoration: none;
   margin-top: 3%;
-  background-color: #0E2237;
+  background-color: #143253;
   border-radius: 8px;
 }
  
@@ -33,14 +94,17 @@ body {
 }
 
 .sidebar a:hover:not(.active) {
-  background-color: #10273F;
+  background-color: #15365A;
   border-radius: 8px;
   color: white;
 }
 
 div.content {
-  margin-left: 300px;
-  padding: 0 16px 0 16px;
+  background-color: #0E2237;
+  margin-left: 350px;
+  height: 85vh;
+  display: block;
+  overflow: scroll;
 }
 .server {
   padding: 5px;
@@ -57,7 +121,6 @@ div.content {
   
   div.content {
     padding: 0;
-    margin-top: 1.4rem;
   }
   .sidebar {
     width: 100%;
