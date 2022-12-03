@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import Navbar from '../../../components/Navbar/Navbar';
 import "../../../App.css";
 import { getUserGuilds, getUser } from "../../../services/api";
+import api from "../../../services/api";
 import Header from "../../../components/Helmet/Helmet";
 import Loader from "../../../components/Loader/Loader";
 import Button from '@mui/material/Button';
@@ -13,6 +14,9 @@ export default function Daily() {
     const [userGuilds, setUserGuilds] = useState([]);
     const [loading, setLoading] = useState(true);
     const captchaRef = useRef(null)
+
+    
+
     useEffect(() => {
         const exFunctions = async () => {
             if (localStorage.getItem("key") && localStorage.getItem("id")) {
@@ -36,6 +40,15 @@ export default function Daily() {
         const permissions = parseInt(permission) & 0x8;
         return permissions;
     }
+    const Submit = () => {
+        const token = captchaRef.current.getValue();
+        captchaRef.current.reset();
+        api.post("/recaptcha", {token})
+        .then(res =>  console.log(res))
+        .catch((error) => {
+        console.log(error);
+        })
+    }
     /* global BigInt */
     const uiavatar = "https://ui-avatars.com/api/?name=";
     const dcavatar = "https://cdn.discordapp.com/icons/";
@@ -52,6 +65,8 @@ export default function Daily() {
                             sitekey="6LdOIFIjAAAAAKcJnBM0H7F2KHkA4iSVYtmHN20f"
                             ref={captchaRef}
                         />
+
+                        <button onClick={Submit}>Maqueiiicoooo</button>
                     </div>
                 </div>
             </div>
