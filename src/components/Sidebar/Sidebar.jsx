@@ -1,21 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./index.css";
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-
+import 'primeicons/primeicons.css';
 const Sidebar = ({ guild, user, userGuilds, type }) => {
 useEffect(() => {
   document.body.classList.add('sidebar-body');
 }, [])
   const uiavatar = "https://ui-avatars.com/api/?name=";
   const dcavatar = "https://cdn.discordapp.com/icons/";
+  const [mobile, setMobile] = useState(false);
   function Perms(permission) {
     const permissions = parseInt(permission) & 0x8;
     return permissions;
   }
   return (
     <>
-      <div className="guilds-sidebar">
+    
+    <a className="bars-icon" onClick={() => setMobile(!mobile)}><i className="pi pi-bars" style={{'fontSize': '25px'}}></i></a>
+    <div id="transition" className="sidebar-toggle">
+      <div className={mobile ? "guilds-sidebar-expanded" : "guilds-sidebar"}>
         {user.avatar ? <img className="usericon" src={"https://cdn.discordapp.com/avatars/" + user.id + "/" + user.avatar} /> : <img className="usericon active-guild" src="https://cdn.discordapp.com/embed/avatars/1.png" />}
         <hr />
         {userGuilds ? userGuilds.map((guild) => (
@@ -32,7 +36,7 @@ useEffect(() => {
 
       </div>
       {type == "guild" ? (
-      <div className="sidebar">
+      <div className={mobile ? "sidebar-expanded" : "sidebar"}>
         <div className="server">
           {guild.icon ? <img src={dcavatar + guild.id + "/" + guild.icon} height="100px" width="100px" /> : <img src={uiavatar + guild.name} height="100px" width="100px" />}
           <Typography variant="body1" sx={{ fontSize: "20px", color: "#fff" }}>{guild.name}</Typography>
@@ -56,7 +60,7 @@ useEffect(() => {
         <br />
       </div>
       ) : (
-        <div className="sidebar">
+        <div className={mobile ? "sidebar-expanded" : "sidebar"}>
         <div className="server">
           {user.avatar ? <img src={"https://cdn.discordapp.com/avatars/" + user.id + "/" + user.avatar} height="100px" width="100px" /> : <img src={uiavatar + user.username} height="100px" width="100px" />}
           <Typography variant="body1" sx={{ fontSize: "20px", color: "#fff" }}>{user.username + "#" + user.discriminator}</Typography>
@@ -66,14 +70,15 @@ useEffect(() => {
         <a className="active" href="#home">
           Início
         </a>
-        <a href="#teste">Daily</a>
-        <a href="#teste">Loja diária</a>
-        <a href="#teste">Gerenciar Premium</a>
-        <a href="#teste">Transações Recentes</a>
-        <a href="#teste">Backgrounds do Perfil</a>
+        <a href="/dashboard/@me/daily">Daily</a>
+        <a href="/dashboard/@me/shop">Loja diária</a>
+        <a href="/dashboard/@me/premium">Gerenciar Premium</a>
+        <a href="/dashboard/@me/transations">Transações Recentes</a>
+        <a href="/dashboard/@me/backgrounds">Backgrounds do Perfil</a>
         <br />
       </div>
       )}
+      </div>
     </>
   )
 }

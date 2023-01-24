@@ -24,4 +24,14 @@ export async function getAutoroleRoles(guildId) {
   return res;
 }
 
+export async function getAllDatabase(guildId) {
+  const res = await api.get(`/getdb?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&guild=${guildId}`);
+  return res;
+}
+
+export async function getUserDb(userId) {
+  const res = await api.get(`/getuserdb?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&uId=${userId}`);
+  return res;
+}
+
 export default api;

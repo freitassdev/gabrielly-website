@@ -48,9 +48,9 @@ export default function Dashboard() {
         
             <div style={{ padding: "1rem 0rem 2rem 0rem" }}>
               {userGuilds ? userGuilds.map((guild) => (
-                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
+                <div key={guild.id} style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
                   {Perms(guild.permissions) == 8 ? (
-                    <div key={guild.id} className="guilds-area">
+                    <div className="guilds-area">
                       <div style={{ display: 'flex', flexFlow: 'row wrap', alignItems: 'center', justifyContent: 'flex-start' }}>
                         {guild.icon ?
                           <img src={dcavatar + guild.id + "/" + guild.icon} style={{ height: "60px", borderRadius: "50%", border: "2px solid #0292F9" }} />

@@ -18,14 +18,14 @@ const Navbar = ({ userData, withShadow }) => {
   return (
     <>
       <nav style={withShadow ? { boxShadow: "0 3px 4px rgba(0,0,0,.2)", width: "100%" } : { width: "100%" }}>
-        <div className="navbar" style={{width: "100%"}}>
+        <div className="navbar">
           <div className="bot-area">
-            <img src={botimg} />
+            <img src="https://media.discordapp.net/attachments/956329821598810193/1049858560697303130/MT_5w2m04po0ioog1t7744z5n4z5.jpg" />
             <h1 className="gradient-text leckerli-one">Gabrielly</h1>
             <div className="divider" />
           </div>
           <a className="bars-icon" onClick={() => setMobile(!mobile)}><i className="pi pi-bars" style={{'fontSize': '25px'}}></i></a>
-          <div className={mobile ? "navbar-mobile" : ""}>
+          <div className={mobile ? "navbar-mobile" : ""} style={{minWidth: "auto"}}>
             <ul className="navbar-itens">
               <li className="nav-item">
                 <Link style={{ color: "#FFFFF" }} to="/" >Início</Link>
@@ -40,15 +40,15 @@ const Navbar = ({ userData, withShadow }) => {
               <li className="nav-item">
                 <Link style={{ color: "#FFFFF" }} to="/docs" >Documentação</Link>
               </li>
-              <li className="user-area nav-item">
-              {userData.username ? (
+              <div className="user-area" style={{width: "auto", justifyContent: "end"}}>
+              {userData?.username ? (
                 <>
                 
-                <h1 className="sans-font">{userData.username + "#" + userData.discriminator}</h1></>
+                <h1 className="sans-font">{userData?.username + "#" + userData?.discriminator}</h1></>
               ) : (<>
                 <h1 className="sans-font">Login</h1></>
               )}
-              </li>
+              </div>
             </ul>
             
           </div>

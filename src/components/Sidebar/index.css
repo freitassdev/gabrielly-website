@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  
 }
 .sidebar-body {
   max-height: 100%;
@@ -116,32 +115,7 @@ div.content {
 }
 
 
-@media screen and (max-width: 600px) {
-  div.content {margin-left: 0; }
-  
-  div.content {
-    padding: 0;
-  }
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar-menu {
-    padding: 15px;
-  }
-  .sidebar {
-    border-radius: 8px;
-  }
-  .sidebar a {
-    text-align: center;
-    float: none;
-    border-radius: 8px;
-  }
-  .side-icon {
-  text-align: right;
-}
-}
+
 
 ul {
   margin: 0;
@@ -150,4 +124,122 @@ ul {
 
 ul li a:hover {
   cursor: pointer;
+}
+
+@media (max-width: 1060px) {
+  .sidebar-toggle {
+    width: 50px;
+    height:50px;
+    content: "gay";
+    background-color: antiquewhite;
+  }
+  .sidebar {
+    display: none;
+  }
+  .guilds-sidebar {
+    display: none;
+  }
+
+  div.content {margin-left: 0; }
+  
+  div.content {
+    padding: 0;
+  }
+
+
+  
+.guilds-sidebar-expanded {
+  position:absolute;
+  width: 80px;
+  height: 95vh;
+  overflow: scroll;
+  background-color: #0A1929;
+}
+
+.guilds-sidebar-expanded img {
+  width: 55px;
+  height: auto;
+  border-radius: 50%;
+}
+.guilds-sidebar-expanded .guild-icon {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.guilds-sidebar-expanded .usericon img {
+  width: 60px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.guilds-sidebar-expanded .usericon {
+  margin-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guilds-sidebar-expanded hr {
+  width: 50px;
+  height: 3px;
+  background-color: #0195FA;
+  border: 1px solid #0195FA;
+  border-radius: 5px;
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.guild-icon.active-guild {
+  background-color: #fff;
+}
+
+#transition {
+  transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+
+.sidebar-expanded {
+  margin-left: 80px;
+  padding: 10px;
+  width: calc(100vw - 80px);
+  background-color: #122C48;
+  position: absolute;
+  height: 85vh;
+  overflow: scroll;
+  border-radius: 20px 0 0 20px;
+  font-size: 15px;
+  z-index: 100;
+}
+.sidebar-expanded::-webkit-scrollbar { 
+	display: none;
+}
+
+.guilds-sidebar-expanded::-webkit-scrollbar { 
+	display: none;
+}
+
+.sidebar-expanded a {
+  display: block;
+  color: #fff;
+  padding: 10px;
+  text-decoration: none;
+  margin-top: 3%;
+  background-color: #143253;
+  border-radius: 8px;
+}
+ 
+.sidebar-expanded a.active {
+  background-color: #0195FA;
+  border-radius: 8px;
+  color: white;
+}
+
+.sidebar-expanded a:hover:not(.active) {
+  background-color: #15365A;
+  border-radius: 8px;
+  color: white;
+}
 }

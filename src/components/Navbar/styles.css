@@ -15,12 +15,18 @@ html {
 .navbar-itens {
   display: flex;
   flex-direction: row;
-  justify-content:center;
+  justify-content:start;
   align-items: center;
-  width: auto;
+  min-width: 100%;
   padding: 15px;
 }
-
+.navbar .navbar-itens .user-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: end;
+  }
+  
 .nav-item {
   color: #3C9AFF;
   font-size: 17px;
@@ -29,11 +35,6 @@ html {
 .nav-item a:hover {
   transition: all 0.2s ease;
   color: #0170C3;
-}
-.user-area {
-  flex-direction: row;
-  justify-content: end;
-  align-items: center;
 }
 
 .user-area img {
@@ -44,7 +45,6 @@ html {
 }
 
 .user-area h1 {
-  padding: 5px;
   font-size: 20px;
   color: #DDDD;
   font-weight: lighter;
@@ -137,8 +137,9 @@ li {
   .navbar-mobile .user-area {
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: end;
   align-items: center;
+  padding: 15px;
   }
 
 }

@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 import { BlockUI } from 'primereact/blockui';
 import { Button } from 'primereact/button';
 import { InputSwitch } from 'primereact/inputswitch';
-export default function Test() {
+export default function Autorole() {
   const [user, setUser] = useState();
   const [userGuilds, setUserGuilds] = useState([]);
   const [roles, setRoles] = useState([]);
@@ -34,20 +34,20 @@ export default function Test() {
   const sendInfos = async () => {
     setSendLoading(true);
     api.post(`/postrolesdb?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&guild=${guildId}`, { roles: selected, status: autoroleStatus });
-    
-    setTimeout(function(){
+
+    setTimeout(function () {
       setSendLoading(false);
       toast.info('Informações salvas com sucesso!', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-      className: "toast-message",
-    });
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        className: "toast-message",
+      });
     }, 3000);
   }
   const navigate = useNavigate();
@@ -121,25 +121,18 @@ export default function Test() {
         {userGuilds.map((guild) => (
           <div key={guild.id}>
             {guild.has && guild.id == guildId && Perms(guild.permissions) == 8 ? (
-              <div style={{ padding: "20px" }}>
+              <div>
                 <div><Header title={"Configurações " + guild.name} /></div>
-                <Sidebar guild={guild} user={user} />
+                <Sidebar guild={guild} user={user} type="guild" userGuilds={userGuilds} />
                 <div className="content">
-                  <div className="area" style={{ width: "100%", borderRadius: "8px", margin: "auto" }}>
-                    <header className="area-header" style={{ color: "#C7D5D4", padding: "10px", fontSize: "16px" }}>
-                      <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        flexWrap: 'wrap',
-                      }}> <SettingsIcon sx={{ fontSize: 20 }} /><span className="sniglet" style={{ marginLeft: "10px" }}>Configurações Gerais</span></div>
-                    </header>
-                    <div className="area-body" style={{ backgroundColor: "#0C1E31", borderRadius: "0px 0px 8px 8px" }}>
-                      <div style={{ padding: "3rem" }}>
-                        <h2 style={{ paddingBottom: "1rem", color: "#D9D9D9" }}>Ativar o autorole?</h2>
-                        <InputSwitch checked={autoroleStatus} onChange={(e) => switchFunction(e.value)} />
-                      </div>
-                      <BlockUI blocked={block} style={{ borderRadius: "8px" }}><div style={{ padding: "3rem" }}>
 
+                  <div style={{ marginLeft: "50px" }}>
+                    <div style={{ padding: "2rem" }}>
+                      <h2 style={{ paddingBottom: "1rem", color: "#D9D9D9" }}>Ativar o autorole?</h2>
+                      <InputSwitch checked={autoroleStatus} onChange={(e) => switchFunction(e.value)} />
+                    </div>
+                    <BlockUI blocked={block} style={{ borderRadius: "8px" }}>
+                      <div style={{ padding: "2rem" }}>
                         <h2 style={{ paddingBottom: "1rem", color: "#D9D9D9" }}>Selecione até 5 cargos para o autorole.</h2>
                         <MultiSelect
                           value={selected}
@@ -158,17 +151,18 @@ export default function Test() {
 
                         />
                       </div>
-                      </BlockUI>
-                      <div style={{ padding: "2rem" }}> <Button style={{marginLeft: "auto"}} label="Salvar" loading={sendLoading} onClick={() => sendInfos()} /></div>
-                      {/*roles.map((role) => (
+                    </BlockUI>
+                    <div style={{ marginTop: "15%", padding: "2rem" }}>
+                      <Button style={{ marginLeft: "auto" }} label="Salvar" loading={sendLoading} onClick={() => sendInfos()} />
+                    </div>
+                  </div>
+                  {/*roles.map((role) => (
                           <div key={role.id}>
                             <h1>{role.id}</h1>
                           </div>
                         ))*/}
-                    </div>
-
-                  </div>
                 </div>
+
               </div>
             ) : null}
           </div>
