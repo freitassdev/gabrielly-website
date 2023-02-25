@@ -59,7 +59,7 @@ export default function Dashboard() {
 
                         <p className="sniglet" style={{ color: "#DDDDDD", fontSize: '20px', marginLeft: '10px' }}>{guild.name}</p>
                       </div>
-                      {guild.has ? <Link to={"/dashboard/" + guild.id + "/test"}><Button style={{ maxWidth: '120px', maxHeight: '40px', minWidth: '120px', minHeight: '40px', fontSize: "15px", marginRight: "12px", textTransform: "none" }} variant="contained">Configurar</Button></Link> : <Button style={{ maxWidth: '120px', maxHeight: '40px', minWidth: '120px', minHeight: '40px', fontSize: "15px", marginRight: "12px", textTransform: "none" }} variant="contained">Adicionar</Button>}
+                      {guild.has ? <Link to={"/dashboard/" + guild.id + "/basic"}><Button style={{ maxWidth: '120px', maxHeight: '40px', minWidth: '120px', minHeight: '40px', fontSize: "15px", marginRight: "12px", textTransform: "none" }} variant="contained">Configurar</Button></Link> : <Button style={{ maxWidth: '120px', maxHeight: '40px', minWidth: '120px', minHeight: '40px', fontSize: "15px", marginRight: "12px", textTransform: "none" }} variant="contained">Adicionar</Button>}
                     </div>
                   ) : null}
 

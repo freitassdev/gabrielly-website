@@ -25,7 +25,7 @@ const Navbar = ({ userData, withShadow }) => {
             <div className="divider" />
           </div>
           <a className="bars-icon" onClick={() => setMobile(!mobile)}><i className="pi pi-bars" style={{'fontSize': '25px'}}></i></a>
-          <div className={mobile ? "navbar-mobile" : ""} style={{minWidth: "auto"}}>
+          <div className={mobile ? "navbar-mobile" : "navbar-desktop"}>
             <ul className="navbar-itens">
               <li className="nav-item">
                 <Link style={{ color: "#FFFFF" }} to="/" >Início</Link>
@@ -40,17 +40,15 @@ const Navbar = ({ userData, withShadow }) => {
               <li className="nav-item">
                 <Link style={{ color: "#FFFFF" }} to="/docs" >Documentação</Link>
               </li>
-              <div className="user-area" style={{width: "auto", justifyContent: "end"}}>
+              
+            </ul>
+            <div className="user-area">
               {userData?.username ? (
-                <>
-                
-                <h1 className="sans-font">{userData?.username + "#" + userData?.discriminator}</h1></>
-              ) : (<>
-                <h1 className="sans-font">Login</h1></>
+                <h1 className="sans-font">{userData?.username + "#" + userData?.discriminator}</h1>
+              ) : (
+                <a href="https://discord.com/api/oauth2/authorize?client_id=868364606186328084&redirect_uri=https%3A%2F%2Fapi.gabrielly.website%2Fcallback&response_type=code&scope=identify%20email%20guilds" target="_blank"><Button style={{ maxWidth: '150px', maxHeight: '40px', minWidth: '120px', minHeight: '40px', fontSize: "15px", marginRight: "5px", borderRadius: "8px", textTransform: "none" }} variant="contained">Fazer Login</Button></a>
               )}
               </div>
-            </ul>
-            
           </div>
         </div>
       </nav>

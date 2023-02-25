@@ -1,9 +1,11 @@
 body {
   margin: 0;
 }
+
 html {
   background-color: #0A1929;
 }
+
 .navbar {
   width: 100%;
   display: flex;
@@ -15,23 +17,18 @@ html {
 .navbar-itens {
   display: flex;
   flex-direction: row;
-  justify-content:start;
+  justify-content: start;
   align-items: center;
-  min-width: 100%;
   padding: 15px;
 }
-.navbar .navbar-itens .user-area {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  align-items: end;
-  }
-  
+
+
 .nav-item {
   color: #3C9AFF;
   font-size: 17px;
   padding: 5px;
 }
+
 .nav-item a:hover {
   transition: all 0.2s ease;
   color: #0170C3;
@@ -49,13 +46,27 @@ html {
   color: #DDDD;
   font-weight: lighter;
 }
+.navbar-desktop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%
+}
 
-
+.user-area {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  padding: 15px;
+  margin-left: auto;
+}
 .bot-area {
   padding: 7px;
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -77,10 +88,12 @@ html {
   background-color: #122C48;
   border-radius: 1px;
 }
+
 a {
   text-decoration: none;
   color: #3C9AFF;
 }
+
 li {
   list-style: none;
 }
@@ -90,17 +103,22 @@ li {
 }
 
 @media (max-width: 760px) {
-  .user-area {
-    display:none;
+  .navbar-desktop {
+    display: none;
   }
+  .user-area {
+    display: none;
+  }
+
   .bars-icon {
-     position: block;
+    position: block;
     padding: 15px;
     display: flex;
     margin-left: auto;
     justify-content: end;
-  align-items:center;
+    align-items: center;
   }
+
   .navbar .navbar-mobile {
     display: block
   }
@@ -110,38 +128,40 @@ li {
   }
 
   .navbar-mobile {
-  position: absolute;
-  display: flex;
-  height: 12rem;
-  background-color: #0A1929;
-  margin: 0 auto;
-  margin-top: 4rem;
-  border-radius: 0 0 15px 15px;
-  width: 100%;
-  z-index: 100;
-  box-shadow: 0 3px 4px rgba(0,0,0,.2);
+    position: absolute;
+    display: flex;
+    height: 13rem;
+    background-color: #0A1929;
+    margin: 0 auto;
+    margin-top: 4rem;
+    border-radius: 0 0 15px 15px;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, .2);
   }
+
   .bot-area .divider {
-    display:none;
+    display: none;
   }
+
   .navbar-itens {
-    display:none;
+    display: none;
   }
+
   .navbar-mobile .navbar-itens {
     display: flex;
     flex-direction: column;
     margin-left: 0px;
     width: 100%;
   }
-  
-  .navbar-mobile .user-area {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
-  align-items: center;
-  padding: 15px;
-  }
 
+  .navbar-mobile .user-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
 }
 
 
