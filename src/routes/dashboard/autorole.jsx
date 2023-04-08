@@ -4,7 +4,7 @@ import "../../App.css";
 import "../../components/Sidebar/index.css";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
-import { getUserGuilds, getGuildRoles, getUser, getAutoroleRoles, api } from "../../services/api";
+import { getUser_Guilds_GuildRoles, getAutoroleRoles, api } from "../../services/api";
 import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Helmet/Helmet";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -58,13 +58,7 @@ export default function Autorole() {
   useEffect(() => {
     const exFunctions = async () => {
       if (localStorage.getItem("key") && localStorage.getItem("id")) {
-        await getUser().then((res) => {
-          setUser(res.data);
-        })
-
-        await getUserGuilds().then((res) => {
-          setUserGuilds(res.data);
-        });
+       
 
         await getAutoroleRoles(guildId).then((res) => {
           setSelect(res.data.roles);
@@ -78,9 +72,10 @@ export default function Autorole() {
         })
 
         const rolesoptions = [];
-        await getGuildRoles(guildId).then((res) => {
-
-          Promise.all(res.data.map((role) => {
+        await getUser_Guilds_GuildRoles(guildId).then((res) => {
+          setUser(res.data.userInfo);
+          setUserGuilds(res.data.guilds);
+          Promise.all(res.data.guildRoles.map((role) => {
             // && !role.tags
             if (role.name != "@everyone") {
               rolesoptions.push({ label: "@" + role.name, value: role.id });
@@ -88,7 +83,7 @@ export default function Autorole() {
           })).then(() => {
             setOptions(rolesoptions)
           });
-          setRoles(res.data);
+          setRoles(res.data.guildRoles);
         })
       }
 

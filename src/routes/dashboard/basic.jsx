@@ -4,7 +4,7 @@ import "../../App.css";
 import "../../components/Sidebar/index.css";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
-import { getUserGuilds, getUser, api, getAllDatabase } from "../../services/api";
+import { getUser_UserGuilds, api, getAllDatabase } from "../../services/api";
 import { Link, useParams } from "react-router-dom";
 import Header from "../../components/Helmet/Helmet";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -46,12 +46,10 @@ export default function Basic() {
   useEffect(() => {
     const exFunctions = async () => {
       if (localStorage.getItem("key") && localStorage.getItem("id")) {
-        await getUser().then((res) => {
-          setUser(res.data);
-        })
 
-        await getUserGuilds().then((res) => {
-          setUserGuilds(res.data);
+        await getUser_UserGuilds().then((res) => {
+          setUser(res.data.userInfo);
+          setUserGuilds(res.data.guilds);
         });
         
         await getAllDatabase().then((res) => {

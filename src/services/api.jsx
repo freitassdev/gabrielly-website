@@ -1,21 +1,23 @@
 import axios from "axios"
 
 export const api = axios.create({
-  baseURL: "https://api.gabrielly.website"
+  baseURL: "https://gaby-server.onrender.com"
 });
 
-export async function getUserGuilds() {
-  const res = await api.get(`/getguilds?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}`);
+export async function getUser_UserGuilds() {
+  const res = await api.get(`/api/get?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&infoTypes=userInfo,guilds`);
   return res;
 }
 
 export async function getUser() {
-  const res = await api.get(`/getuser?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}`);
+  console.log("a")
+  const res = await api.get(`/api/get?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&infoTypes=userInfo`);
   return res;
 }
 
-export async function getGuildRoles(guildId) {
-  const res = await api.get(`/getroles?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&guild=${guildId}`);
+export async function getUser_Guilds_GuildRoles(guildId) {
+  const res = await await api.get(`/api/get?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&infoTypes=userInfo,guildRoles,guilds&guild=${guildId}`);
+  console.log(res)
   return res;
 }
 

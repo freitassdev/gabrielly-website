@@ -15,7 +15,7 @@ export default function App() {
     const exFunctions = async () => {
       if (localStorage.getItem("key") && localStorage.getItem("id")) {
         await getUser().then((res) => {
-          setUser(res.data);
+          setUser(res.data.userInfo);
         });
       }
       setLoading(false);

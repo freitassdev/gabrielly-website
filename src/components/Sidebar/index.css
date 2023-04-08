@@ -28,7 +28,7 @@ body {
 }
 .guilds-sidebar .usericon img {
   width: 60px;
-  height: auto;
+  height: 60px;
   border-radius: 50%;
 }
 
@@ -125,14 +125,10 @@ ul {
 ul li a:hover {
   cursor: pointer;
 }
-
+.expand-button {
+  display: none;
+}
 @media (max-width: 1060px) {
-  .sidebar-toggle {
-    width: 50px;
-    height:50px;
-    content: "gay";
-    background-color: antiquewhite;
-  }
   .sidebar {
     display: none;
   }
@@ -143,34 +139,41 @@ ul li a:hover {
   div.content {margin-left: 0; }
   
   div.content {
+    transition: opacity .3s ease-in-out;
     padding: 0;
   }
 
-
+  .content.blur {
+    backdrop-filter: blur(105px);
+    opacity: .5;
+  }
   
 .guilds-sidebar-expanded {
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
   position:absolute;
-  width: 80px;
-  height: 95vh;
+  width: 100%;
+  height: 70px;
   overflow: scroll;
   background-color: #0A1929;
 }
 
 .guilds-sidebar-expanded img {
+  padding: 4px;
   width: 55px;
   height: auto;
   border-radius: 50%;
 }
 .guilds-sidebar-expanded .guild-icon {
-  margin-top: 10px;
+  margin: 10px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  
 }
-.guilds-sidebar-expanded .usericon img {
-  width: 60px;
-  height: auto;
+.guilds-sidebar-expanded .usericon {
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
 }
 
@@ -182,34 +185,28 @@ ul li a:hover {
 }
 
 .guilds-sidebar-expanded hr {
-  width: 50px;
-  height: 3px;
+  margin-top: 14px;
+  padding: 0.7px;
+  height: 45px;
   background-color: #0195FA;
   border: 1px solid #0195FA;
   border-radius: 5px;
   display: block;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .guild-icon.active-guild {
   background-color: #fff;
 }
 
-#transition {
-  transition: width 2s, height 2s, background-color 2s, transform 2s;
-}
-
 .sidebar-expanded {
-  margin-left: 80px;
+  margin-top: 80px;
   padding: 10px;
-  width: calc(100vw - 80px);
+  width: 100%;
   background-color: #122C48;
   position: absolute;
   height: 85vh;
   overflow: scroll;
-  border-radius: 20px 0 0 20px;
+  border-radius: 20px;
   font-size: 15px;
   z-index: 100;
 }
@@ -242,4 +239,25 @@ ul li a:hover {
   border-radius: 8px;
   color: white;
 }
+.expand-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  height: 55px;
+  width: 55px;
+  background-color:#0195FA;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  transition: all 0.5s ease;
+}
+}
+
+
+
+.rotate {
+  transform: rotate(180deg);
 }

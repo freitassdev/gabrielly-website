@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Navbar from '../../../components/Navbar/Navbar';
 import "../../../App.css";
-import { getUserGuilds, getUser, getUserDb } from "../../../services/api";
+import { getUser_UserGuilds, getUserDb } from "../../../services/api";
 import api from "../../../services/api";
 import Header from "../../../components/Helmet/Helmet";
 import Loader from "../../../components/Loader/Loader";
@@ -28,9 +28,10 @@ export default function Daily() {
                     setUser(res.data);
                 })
 
-                await getUserGuilds().then((res) => {
-                    setUserGuilds(res.data);
-                });
+                await getUser_UserGuilds().then((res) => {
+                    setUser(res.data.userInfo);
+                    setUserGuilds(res.data.guilds);
+                  });
 
                 await getUserDb(localStorage.getItem("id")).then((res) => {
                     setUserDaily(res.data.daily.date);
