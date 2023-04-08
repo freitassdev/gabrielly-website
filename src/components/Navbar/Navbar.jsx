@@ -13,7 +13,7 @@ const Navbar = ({ userData, withShadow }) => {
     var srcavatar = `https://cdn.discordapp.com/avatars/${userData.id}/${userData.avatar}`
     button = <table><tbody><tr><td><img src={srcavatar} style={{ borderRadius: "50px", width: "51px", marginTop: "1px" }} /></td><td><h2 style={{ padding: "10px", fontSize: "22px" }} className="sniglet">{userData.username + "#" + userData.discriminator}</h2></td></tr></tbody></table>
   } else {
-    button = <Button size="small" style={{ fontSize: "15px" }} variant="contained" onClick={() => window.location.href = 'https://discord.com/oauth2/authorize?response_type=code&redirect_uri=https%3A%2F%2Fapi.gabrielly.website%2Fcallback&scope=identify%20guilds&client_id=868364606186328084'}>Login</Button>;
+    button = <Button size="small" style={{ fontSize: "15px" }} variant="contained" onClick={() => window.location.href = 'https://discord.com/oauth2/authorize?response_type=code&redirect_uri=https%3A%2F%2Fgaby-server.onrender.com%2Fcallback&scope=identify%20guilds&client_id=868364606186328084'}>Login</Button>;
   }
   return (
     <>
