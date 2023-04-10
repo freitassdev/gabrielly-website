@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import ReCAPTCHA from "react-google-recaptcha";
 import Countdown from "react-countdown";
+import { useNavigate } from "react-router-dom";
 export default function Daily() {
     const [user, setUser] = useState();
     const [userDaily, setUserDaily] = useState();
@@ -17,6 +18,7 @@ export default function Daily() {
     const [userGuilds, setUserGuilds] = useState([]);
     const [loading, setLoading] = useState(true);
     const [captchaResponse, setCaptchaResponse] = useState(true);
+    const navigate = useNavigate();
     const captchaRef = useRef(null)
     let dailygive = Math.floor(Math.random() * (5000-3000) + 3000);
 
@@ -37,6 +39,8 @@ export default function Daily() {
                     setUserDaily(res.data.daily.date);
                     setUserDailyGive(res.data.daily.obtained);
                 })
+            } else {
+                navigate('/?err=true&errcode=01')
             }
             setLoading(false);
         }

@@ -8,10 +8,12 @@ import Loader from "../components/Loader/Loader";
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar/Sidebar";
+import { useNavigate } from "react-router-dom";
 export default function Dashboard() {
   const [user, setUser] = useState();
   const [userGuilds, setUserGuilds] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
   useEffect(() => {
     const exFunctions = async () => {
       if (localStorage.getItem("key") && localStorage.getItem("id")) {
@@ -20,6 +22,8 @@ export default function Dashboard() {
           setUser(res.data.userInfo);
           setUserGuilds(res.data.guilds);
         });
+      } else {
+        navigate('/?err=true&errcode=01')
       }
       setLoading(false);
     }

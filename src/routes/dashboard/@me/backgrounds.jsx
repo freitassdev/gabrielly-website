@@ -9,13 +9,14 @@ import { Button } from "primereact/button"
 import { Link } from "react-router-dom";
 import Sidebar from "../../../components/Sidebar/Sidebar";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useNavigate } from "react-router-dom";
 export default function Backgrounds() {
     const [user, setUser] = useState();
     const [userGuilds, setUserGuilds] = useState([]);
     const [loading, setLoading] = useState(true);
     const [captchaResponse, setCaptchaResponse] = useState(true);
     const captchaRef = useRef(null)
-
+    const navigate = useNavigate();
     
 
     useEffect(() => {
@@ -28,7 +29,9 @@ export default function Backgrounds() {
                 await getUserGuilds().then((res) => {
                     setUserGuilds(res.data);
                 });
-            }
+            } else {
+                navigate('/?err=true&errcode=01')
+              }
             setLoading(false);
         }
 

@@ -16,6 +16,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
+import { useNavigate } from "react-router-dom";
 export default function Basic() {
   const [user, setUser] = useState();
   const [userGuilds, setUserGuilds] = useState([]);
@@ -23,6 +24,7 @@ export default function Basic() {
   const [select, setSelect] = useState();
   const [sendLoading, setSendLoading] = useState(false);
   const [database, setDatabase] = useState();
+  const navigate = useNavigate();
   let { guildId } = useParams();
   const sendInfos = async () => {
     setSendLoading(true);
@@ -56,6 +58,8 @@ export default function Basic() {
           setDatabase(res.data)
           setSelect(res.data.language)
         })
+      } else {
+        navigate('/?err=true&errcode=01')
       }
 
       setLoading(false);

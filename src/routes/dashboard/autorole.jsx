@@ -85,6 +85,8 @@ export default function Autorole() {
           });
           setRoles(res.data.guildRoles);
         })
+      } else {
+        navigate('/?err=true&errcode=01')
       }
 
       setLoading(false);

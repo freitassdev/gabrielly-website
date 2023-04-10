@@ -20,21 +20,20 @@ const Sidebar = ({ guild, user, userGuilds, type }) => {
       <a className="expand-button" onClick={() => {
         setMobile(!mobile);
         const button = document.querySelector('.expand-button');
-        const guildsShow = document.querySelector('.guilds-sidebar-expanded');
         var icon = document.getElementById("move-icon");
         const content = document.querySelector('.content');
         if (mobile) {
           button.style.left = '0';
           icon.style.transform = 'rotate(0deg)';
           icon.style.transition = 'transform 0.5s ease-in-out';
-          guildsShow.classList.add('show-guilds');
           content.classList.toggle('blur');
+          content.style.overflow = "auto";
         } else {
           button.style.left = 'calc(100% - 100px)';
           content.classList.toggle('blur');
           icon.style.transform = 'rotate(180deg)';
           icon.style.transition = 'transform 0.5s ease-in-out';
-          guildsShow.classList.remove('show-guilds');
+          content.style.overflow = "hidden";
         }
 
 
@@ -64,7 +63,7 @@ const Sidebar = ({ guild, user, userGuilds, type }) => {
               {guild.icon ? <img src={dcavatar + guild.id + "/" + guild.icon} height="100px" width="100px" /> : <img src={uiavatar + guild.name} height="100px" width="100px" />}
               <Typography variant="body1" sx={{ fontSize: "20px", color: "#fff" }}>{guild.name}</Typography>
 
-              <hr style={{ marginTop: "5px", backgroundColor: "#0195FA", border: "1px solid #0195FA" }} />
+              <hr style={{ maxWidth: "25rem", marginTop: "5px", backgroundColor: "#0195FA", border: "1px solid #0195FA" }} />
             </div>
             <Typography variant="body1" sx={{ fontWeight: "bold", textAlign: "center", fontSize: "12px", color: "#0195FA", padding: "3px" }}>ENTRADAS/SAIDAS</Typography>
             <a className="active" href="#home">
@@ -88,7 +87,7 @@ const Sidebar = ({ guild, user, userGuilds, type }) => {
               {user.avatar ? <img src={"https://cdn.discordapp.com/avatars/" + user.id + "/" + user.avatar} height="100px" width="100px" /> : <img src={uiavatar + user.username} height="100px" width="100px" />}
               <Typography variant="body1" sx={{ fontSize: "20px", color: "#fff" }}>{user.username + "#" + user.discriminator}</Typography>
 
-              <hr style={{ marginTop: "5px", backgroundColor: "#0195FA", border: "1px solid #0195FA" }} />
+              <hr style={{ maxWidth: "25rem", marginTop: "5px", backgroundColor: "#0195FA", border: "1px solid #0195FA", marginLeft: "auto", marginRight: "auto" }} />
             </div>
             <a className="active" href="#home">
               Início

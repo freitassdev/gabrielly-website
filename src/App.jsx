@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar/Navbar';
 import "./App.css";
 import Button from '@mui/material/Button';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getUser } from "./services/api";
 import Header from "./components/Helmet/Helmet";
@@ -10,7 +10,9 @@ import Loader from "./components/Loader/Loader";
 export default function App() {
   const [user, setUser] = useState();
   const [loading, setLoading] = useState(true);
-
+  const queryParams = new URLSearchParams(window.location.search)
+  const err = queryParams.get("err");
+  const errCode = queryParams.get("errcode")
   useEffect(() => {
     const exFunctions = async () => {
       if (localStorage.getItem("key") && localStorage.getItem("id")) {
@@ -20,7 +22,24 @@ export default function App() {
       }
       setLoading(false);
     }
-
+    if(true) {
+      
+      switch(errCode) {
+        case "01":
+          toast.error('ERRO: Você não está logado!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            className: "toast-message",
+          });
+          break;
+      }
+    }
     exFunctions();
   }, [])
   user;

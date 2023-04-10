@@ -2,14 +2,13 @@ body {
   margin: 0;
 }
 .sidebar-body {
-  max-height: 100%;
   height: 100%;
   overflow: hidden;
 }
 .guilds-sidebar {
   position:absolute;
   width: 80px;
-  height: 95vh;
+  height: 100%;
   overflow: scroll;
   background-color: #0A1929;
 }
@@ -180,8 +179,6 @@ ul li a:hover {
 .guilds-sidebar-expanded .usericon {
   margin-top: 10px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .guilds-sidebar-expanded hr {
@@ -199,6 +196,7 @@ ul li a:hover {
 }
 
 .sidebar-expanded {
+  max-width: 30rem;
   margin-top: 80px;
   padding: 10px;
   width: 100%;
@@ -209,6 +207,8 @@ ul li a:hover {
   border-radius: 20px;
   font-size: 15px;
   z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .sidebar-expanded::-webkit-scrollbar { 
 	display: none;
@@ -219,11 +219,14 @@ ul li a:hover {
 }
 
 .sidebar-expanded a {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 25rem;
   display: block;
   color: #fff;
   padding: 10px;
   text-decoration: none;
-  margin-top: 3%;
+  margin-top: 15px;
   background-color: #143253;
   border-radius: 8px;
 }

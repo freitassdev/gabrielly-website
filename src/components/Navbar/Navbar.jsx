@@ -46,7 +46,7 @@ const Navbar = ({ userData, withShadow }) => {
               {userData?.username ? (
                 <h1 className="sans-font">{userData?.username + "#" + userData?.discriminator}</h1>
               ) : (
-                <a href="https://discord.com/api/oauth2/authorize?client_id=868364606186328084&redirect_uri=https%3A%2F%2Fapi.gabrielly.website%2Fcallback&response_type=code&scope=identify%20email%20guilds" target="_blank"><Button style={{ maxWidth: '150px', maxHeight: '40px', minWidth: '120px', minHeight: '40px', fontSize: "15px", marginRight: "5px", borderRadius: "8px", textTransform: "none" }} variant="contained">Fazer Login</Button></a>
+                <a href="https://discord.com/api/oauth2/authorize?client_id=868364606186328084&redirect_uri=https%3A%2F%2Fgaby-server.onrender.com%2Fcallback&response_type=code&scope=identify%20email%20guilds" target="_blank"><Button style={{ maxWidth: '150px', maxHeight: '40px', minWidth: '120px', minHeight: '40px', fontSize: "15px", marginRight: "5px", borderRadius: "8px", textTransform: "none" }} variant="contained">Fazer Login</Button></a>
               )}
               </div>
           </div>
