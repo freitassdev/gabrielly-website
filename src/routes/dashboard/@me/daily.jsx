@@ -26,9 +26,6 @@ export default function Daily() {
     useEffect(() => {
         const exFunctions = async () => {
             if (localStorage.getItem("key") && localStorage.getItem("id")) {
-                await getUser().then((res) => {
-                    setUser(res.data);
-                })
 
                 await getUser_UserGuilds().then((res) => {
                     setUser(res.data.userInfo);

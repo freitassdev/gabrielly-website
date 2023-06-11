@@ -97,8 +97,8 @@ export default function Basic() {
 
                   <div style={{ marginLeft: "0px" }}>
                     <div style={{ padding: "2rem" }}>
-                      <h2 style={{ paddingBottom: "1rem", color: "#D9D9D9" }}>Linguagem</h2>
-                      <Dropdown value={select} options={langs} onChange={(e) => setSelect(e.value)} optionLabel="name" placeholder="Selecione uma linguagem" />
+                      <h2 style={{ paddingBottom: "1rem", color: "#D9D9D9" }}>Idioma</h2>
+                      <Dropdown value={select} options={langs} onChange={(e) => setSelect(e.value)} optionLabel="name" placeholder="Selecione um idioma" />
                     </div>
                     
                     <div style={{ marginTop: "15%", padding: "2rem" }}>

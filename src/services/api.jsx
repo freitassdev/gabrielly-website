@@ -1,7 +1,7 @@
 import axios from "axios"
-
+//https://gaby-server.onrender.com
 export const api = axios.create({
-  baseURL: "https://gaby-server.onrender.com"
+  baseURL: "http://localhost:8000"
 });
 
 export async function getUser_UserGuilds() {
@@ -27,7 +27,7 @@ export async function getAutoroleRoles(guildId) {
 }
 
 export async function getAllDatabase(guildId) {
-  const res = await api.get(`/getdb?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&guild=${guildId}`);
+  const res = await api.get(`/api/db/get?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&guild=${guildId}&infoTypes=getAllDatabase`);
   return res;
 }
 
