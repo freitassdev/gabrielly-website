@@ -1,8 +1,11 @@
 import axios from "axios"
 //https://gaby-server.onrender.com
 export const api = axios.create({
-  baseURL: "https://api.gabrielly.website"
+  baseURL: "https://gaby-server.onrender.com"
 });
+
+//https://gaby-server.onrender.com
+//http://localhost:8000
 
 export async function getUser_UserGuilds() {
   const res = await api.get(`/api/get?key=${localStorage.getItem("key")}&id=${localStorage.getItem("id")}&infoTypes=userInfo,guilds`);
